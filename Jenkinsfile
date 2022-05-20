@@ -15,9 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                //sh './node_modules/.bin/jest run test'
-                sh 'npm run unit-test'
-                sh 'npm run integration-test'
+                sh './node_modules/.bin/jest run test'
             }
         }
     }
