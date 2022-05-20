@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< HEAD
     agent any
 
     tools {
@@ -20,6 +21,24 @@ pipeline {
                 sh 'npm run integration-test'
             }
         }
+=======
+  agent any 
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building...'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing...'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying...'
+      }
+>>>>>>> 123db814187008e796a00f6bfe16d87d846d6261
     }
 }
 
