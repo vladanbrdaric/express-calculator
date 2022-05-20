@@ -9,13 +9,12 @@ pipeline {
             steps {
                 git credentialsId: '490cc787-e63d-40d6-9be8-ca2240f86328', url: 'https://github.com/vladanbrdaric/express-calculator.git'
                 sh 'npm install'
-                //sh 'node app.js &'
-                //discordSend description: "", footer: "", link: env.BUILD_URL, result: currentBuild.currentResult, title: 'Vladans Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/964483202666336296/uHLx7ngsz3jAPJVP3APtIQZYI55_qpTpB-7WTxhY9HuXEV2aDeZ_Q3PbcPO8VLwB7ADv'
+                //discordSend description: "", footer: "", link: env.BUILD_URL, result: currentBuild.currentResult, title: 'Vladan Jenkins Pipeline Build', webhookURL: 'https://discord.com/api/webhooks/964483202666336296/uHLx7ngsz3jAPJVP3APtIQZYI55_qpTpB-7WTxhY9HuXEV2aDeZ_Q3PbcPO8VLwB7ADv'
             }
         }
         stage('Test') {
             steps {
-                sh './node_modules/.bin/jest run test'
+                sh 'npm run test'
             }
         }
     }
