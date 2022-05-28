@@ -23,5 +23,13 @@ pipeline {
         sh 'npm run integration-test'
       }
     }
+    stage('Delivery') {
+      when {
+        branch 'master'
+      }
+      steps {
+        sh 'echo "Do this ..."'
+      }
+    }
   }
 }
