@@ -14,7 +14,7 @@
   "author": "Vladan Brdaric",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2",
+    "express": "^4.15.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.1",
