@@ -1,26 +1,12 @@
-pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        sh 'npm install'
-      }
+node {
+
+    checkout scm
+
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+
+        def customImage = docker.build("vladobrdaric/express-calculator")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
-    stage('Delivery') {
-      when {
-        branch 'master'
-      }
-      steps {
-        script {
-	  node {
-	    checkout scm
-      	    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-              def image = docker.build("vladobrdaric/express-calculator")
-	      image.push("$BUILD_ID")
-      	    }
-	  }
-	}
-      }
-    }
-  }
 }
