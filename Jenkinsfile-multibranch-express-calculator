@@ -12,12 +12,11 @@ pipeline {
       }
       steps {
         script {
-	  docker.withTool('docker_installation') {
+	    checkout scm
       	    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
               def image = docker.build("vladobrdaric/express-calculator")
 	      image.push("$BUILD_ID")
       	    }
-	  }
 	}
       }
     }
