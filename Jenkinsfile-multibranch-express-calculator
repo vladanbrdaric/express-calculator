@@ -10,9 +10,13 @@ pipeline {
       when {
         branch 'master'
       }
-      docker.withRegistry('https://registry.hub.docker.com', 'a2910ec9-eaec-44dd-a4a4-08bbac119628') {
-        def image = docker.build("vladobrdaric/express-calculator")
-	image.push()
+      steps {
+        script {
+      	  docker.withRegistry('https://registry.hub.docker.com', 'a2910ec9-eaec-44dd-a4a4-08bbac119628') {
+            def image = docker.build("vladobrdaric/express-calculator")
+	    image.push()
+      	  }
+	}
       }
     }
   }
