@@ -17,13 +17,6 @@ pipeline {
       }
     }
 
-    stage('test') {
-      steps {
-        sh 'curl www.google.com'
-      }
-    }
-
-
     stage('e2e-tests') {
       steps {
         sh 'chmod +x e2e-test.sh'
