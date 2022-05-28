@@ -20,7 +20,6 @@ pipeline {
     stage('e2e-tests') {
       steps {
         sh './e2e-test.sh'
-        #sh 'npm run e2e-test'
       }
     }
   }
