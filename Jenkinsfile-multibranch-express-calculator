@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         sh 'npm install'
+        sh 'cat Jenkinsfile-multibranch-express-calculator'
       }
     }
     stage('unit-test') {
