@@ -10,12 +10,11 @@ pipeline {
       when {
         branch 'master'
       }
-      docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-        def image = docker.build("vladobrdaric/express-calculator")
-	image.push()
-      }
       steps {
-        sh 'echo "Do this ..."'
+      	docker.withRegistry('https://hub.docker.com', 'dockerhub') {
+        	def image = docker.build("vladobrdaric/express-calculator")
+		image.push()
+      	}
       }
     }
   }
