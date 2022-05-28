@@ -6,23 +6,6 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('unit-test') {
-      when {
-        branch 'feature/*'
-      }
-      steps {
-        sh 'npm run unit-test'
-      }
-    }
-
-    stage('integration-test') {
-      when {
-        branch 'develop'
-      }
-      steps {
-        sh 'npm run integration-test'
-      }
-    }
     stage('Delivery') {
       when {
         branch 'master'
