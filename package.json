@@ -9,8 +9,7 @@
     "test": "./node_modules/.bin/jest",
     "unit-test": "./node_modules/.bin/jest src/__tests__/unit",
     "integration-test": "./node_modules/.bin/jest src/__tests__/integration",
-    "e2e-test": "wait-on http://localhost:3000 && ./node_modules/.bin/jest src/__tests__/e2e",
-    "e2e-test2": "wait-on http://localhost:3000 && curl http://localhost:3000"
+    "e2e-test": "wait-on http://localhost:3000 && ./node_modules/.bin/jest src/__tests__/e2e"
   },
   "author": "Vladan Brdaric",
   "license": "ISC",
