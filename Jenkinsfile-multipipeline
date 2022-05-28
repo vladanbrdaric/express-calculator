@@ -11,17 +11,16 @@ pipeline {
         sh 'npm run unit-test'
       }
     }
+    stage('e2e-tests') {
+      steps {
+        sh 'chmod +x e2e-test.sh'
+        sh 'echo "./e2e-test.sh"'
+      }
+    }
     stage('integration-test') {
       steps {
         sh 'npm run integration-test'
       }
     }
-
-    #stage('e2e-tests') {
-    #  steps {
-    #    sh 'chmod +x e2e-test.sh'
-    #    sh './e2e-test.sh'
-    #  }
-    #}
   }
 }
