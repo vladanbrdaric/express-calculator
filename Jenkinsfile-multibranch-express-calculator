@@ -11,12 +11,14 @@ pipeline {
         branch 'master'
       }
       steps {
-        node {
+        script {
+	  node {
 	    checkout scm
       	    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
               def image = docker.build("vladobrdaric/express-calculator")
 	      image.push("$BUILD_ID")
       	    }
+	  }
 	}
       }
     }
