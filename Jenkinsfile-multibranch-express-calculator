@@ -8,15 +8,16 @@ pipeline {
     }
     stage('unit-test') {
       when {
-        branch 'feature/*'
+        branch 'origin/feature/*'
       }
       steps {
         sh 'npm run unit-test'
       }
     }
+    
     stage('integration-test') {
       when {
-        branch 'develop'
+        branch 'origin/develop'
       }
       steps {
         sh 'npm run integration-test'
