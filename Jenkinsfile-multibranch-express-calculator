@@ -1,12 +1,19 @@
-node {
-
-    checkout scm
-
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-
-        def customImage = docker.build("vladobrdaric/express-calculator")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+pipeline {
+  agent any
+  stages {
+    stage('Delivery') {
+      when {
+        branch 'master'
+      }
+      agent {
+        docker {
+          image 'docker:dind'
+	}
+      }
+      steps {
+        sh 'docker build -t vladobrdaric/express-calculator .'
+	sh 'docker push vladobrdaric/express-calculator'
+      }
     }
+  }
 }
